@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Concrete.Payment
+@{
+    ViewData["Title"] = "AddPayment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddPayment", "AdminPayment", FormMethod.Post))
+{    
+    @Html.Label("Ev Id'si")
+    @Html.TextBoxFor(x=>x.HouseId,new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.House.HouseNumber)
+    <br />
+    @Html.Label("Borç Toplamı")
+    @Html.TextBoxFor(x=>x.BillSum,new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.BillSum)
+    <br />
+    <button class="btn btn-info">Ödeme Ekle</button>
+}
+

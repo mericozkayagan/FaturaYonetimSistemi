@@ -1,0 +1,28 @@
+﻿<div class="col-md-3">
+    <a href="/UserMessage/NewMessage" class="btn btn-primary btn-block mb-3">Yeni Mesaj Oluştur</a>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Seçenekler</h3>
+            
+        </div>
+        <div class="card-body p-0">
+            <ul class="nav nav-pills flex-column">
+                
+                <li class="nav-item active">
+                    <a href="/UserMessage/Inbox/" class="nav-link">
+                        <i class="fas fa-inbox"></i> Gelen Mesajlar
+                        <span class="badge badge float-right">@TempData["count"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/UserMessage/Sendbox/" class="nav-link">
+                        <i class="far fa-envelope"></i> Gönderilen Mesajlar
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    
+</div>

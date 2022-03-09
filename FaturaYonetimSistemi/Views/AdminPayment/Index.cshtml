@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Payment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Ödemeler</h2>
+<table class="table table-bordered">
+    
+    <tr>
+        <th>ID</th>
+        <th>Faturaların toplamı</th>
+        <th>Fatura Tarihi</th>
+        <th>Ev Numarası</th>        
+        <th>Ödendi mi</th>        
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PaymentId</td>
+            <td>@item.BillSum</td>
+            <td>@(((DateTime)item.BillDate).ToString("yyyy-MMM"))</td>
+            <td>@item.House.HouseNumber</td>
+            <td>@Html.Raw(item.IsPaid == true ? "<span class='badge badge-success'>Ödendi</span>" : "<span class='badge badge-danger'>Ödenmedi</span>")</td>
+            
+            <td><a href="/AdminPayment/EditPayment/@item.PaymentId" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/AdminPayment/DeletePayment/@item.PaymentId" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/AdminHouse/AddHouse/" class="btn btn-info">Yeni Ödeme Oluştur</a>
+<br />
+

@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hoşgeldiniz @Html.DisplayFor(x => x.Name) @Html.DisplayFor(x => x.Surname)</h4>
+            
+            <form method="get" class="forms-sample">
+                <table class="table table">
+                    <tr>
+                        <th>Emailiniz</th>
+                        <th>Şifreniz</th>
+                        <th>Tc'niz</th>
+                        <th>Telefon Numaranız</th>
+                        <th>Araba Durumunuz</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(x => x.Email)</td>
+                        <td>@Html.DisplayFor(x => x.Password)</td>
+                        <td>@Html.DisplayFor(x => x.TCNo)</td>
+                        <td>@Html.DisplayFor(x => x.PhoneNumber)</td>
+                        <td>@Html.DisplayFor(x => x.CarStatus)</td>
+                    </tr>
+                </table>
+                <br />
+                <a href="/UserMain/EditUser/@Html.DisplayTextFor(x=>x.UserId)" class="btn btn-gradient-primary mr-2">Bilgilerimi Güncelle</a>
+                
+            </form>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("GetUserHouse")
+@await Component.InvokeAsync("CreditCardHouseInfo", new { id=ViewBag.d})
+
+

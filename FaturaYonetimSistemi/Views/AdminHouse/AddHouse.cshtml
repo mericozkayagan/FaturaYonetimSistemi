@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model House
+@{
+    ViewData["Title"] = "AddHouse";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Ev Girişi</h1>
+
+@using (Html.BeginForm("AddHouse", "AdminHouse", FormMethod.Post))
+{
+    <div class="form-group">
+       
+        @Html.Label("Blok:")
+        @Html.TextBoxFor(x => x.Block, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.Block)
+        <br />
+        @Html.Label("Kat:")
+        @Html.TextBoxFor(x => x.Layer, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.Layer)
+        <br />
+        @Html.Label("Tipi:")
+        @Html.TextBoxFor(x => x.Type, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.Type)
+        <br />
+        @Html.Label("Numarası:")
+        @Html.TextBoxFor(x => x.HouseNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.HouseNumber)
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+
+    </div>
+}
+

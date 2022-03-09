@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model House
+@{
+    ViewData["Title"] = "UpdateHouse";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Ev Bilgisi Güncelleme</h1>
+
+@using (Html.BeginForm("UpdateHouse", "AdminHouse", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("House ID:")
+        @Html.TextBoxFor(x => x.HouseId, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Blok:")
+        @Html.TextBoxFor(x => x.Block, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kat:")
+        @Html.TextBoxFor(x => x.Layer, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tipi:")
+        @Html.TextBoxFor(x => x.Type, new { @class = "form-control" })
+        <br />
+        @Html.Label("Numarası:")
+        @Html.TextBoxFor(x => x.HouseNumber, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+
+    </div>
+}
+

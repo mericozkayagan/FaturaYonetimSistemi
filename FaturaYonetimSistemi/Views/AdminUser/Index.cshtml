@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<User>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Tc Numarası</th>
+        <th>Email</th>
+        <th>Telefon No</th>        
+        <th>Araba Durumu</th>
+        <th>Aktif mi</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.UserId</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.TCNo</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.CarStatus</td>
+                    <td>@item.IsActive</td>
+                    <td><a href="/AdminUser/UpdateUser/@item.UserId/" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/AdminUser/DeleteUser/@item.UserId/" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+</table>
+<a href="/AdminUser/AddUser" class="btn btn-info">Yeni Kullanıcı Ekle</a>
+

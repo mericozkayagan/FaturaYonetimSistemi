@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<House>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Evler</h2>
+<table class="table table-bordered">
+    
+    <tr>
+        <th>ID</th>
+        <th>Blok</th>
+        <th>Kat</th>
+        <th>Numara</th>
+        <th>Tipi</th>
+        <th>Durumu</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.HouseId</td>
+            <td>@item.Block</td>
+            <td>@item.Layer</td>
+            <td>@item.HouseNumber</td>
+            <td>@item.Type</td>
+            <td>@item.IsEmpty</td>
+            <td><a href="/AdminHouse/UpdateHouse/@item.HouseId" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/AdminHouse/DeleteHouse/@item.HouseId" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/AdminHouse/AddHouse/" class="btn btn-info">Yeni Ev Oluştur</a>
+<br />
+

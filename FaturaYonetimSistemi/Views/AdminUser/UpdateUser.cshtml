@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model User
+@{
+    ViewData["Title"] = "UpdateUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Kullanıcı Bilgisi Güncelleme</h1>
+
+@using (Html.BeginForm("UpdateUser", "AdminUser", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("User ID:")
+        @Html.TextBoxFor(x => x.UserId, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Ad:")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <br />
+        @Html.Label("Soyad:")
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Email:")
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br />
+        @Html.Label("Telefon:")
+        @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+        <br />
+        @Html.Label("Araba:")
+        @Html.TextBoxFor(x => x.CarStatus, new { @class = "form-control" })
+        <br />
+        
+        <button class="btn btn-primary">Güncelle</button>
+
+    </div>
+}
+

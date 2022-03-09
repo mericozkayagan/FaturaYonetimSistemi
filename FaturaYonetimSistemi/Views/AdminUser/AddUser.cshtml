@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Ekleme</h1>
+@using (Html.BeginForm("AddUser", "AdminUser", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Kullanıcı adı:")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name)
+    <br />
+    @Html.Label("Kullanıcı soyadı:")
+    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Surname)
+    <br />
+    @Html.Label("Kullanıcı mail:")
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Email)
+    <br />
+    @Html.Label("Kullanıcı şifresi:")
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password)
+    <br />
+    @Html.Label("Kullanıcı arabası (boş kalabilir):")
+    @Html.TextBoxFor(x => x.CarStatus, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CarStatus)
+    <br />
+    
+    @Html.Label("Tc kimlik numarası:")
+    @Html.TextBoxFor(x => x.TCNo, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.TCNo)
+    <br />
+    @Html.Label("Telefon numarası:")
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PhoneNumber)
+    <br />
+    
+    <button class="btn btn-info">Kullanıcıyı ekle</button>
+</div>
+}
+

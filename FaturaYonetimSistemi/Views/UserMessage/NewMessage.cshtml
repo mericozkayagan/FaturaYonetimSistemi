@@ -1,0 +1,103 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewData["Title"] = "NewMessage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yeni Mesaj Gönder</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <!-- Theme style -->
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css">
+
+    <script src="~/AdminLTE-3.0.4/plugins/summernote/summernote.min.js"></script>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+<body class="hold-transition sidebar-mini">
+
+    
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                @await Html.PartialAsync("asideBarUser")
+                <!-- /.col -->
+                
+                    
+                        @using (Html.BeginForm("NewMessage", "UserMessage", FormMethod.Post))
+                        {
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        @Html.Label("Alıcı adı:")
+                                        @Html.TextBoxFor(model => model.ReceiverMail, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ReceiverMail)
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Konu:")
+                                        @Html.TextBoxFor(model => model.Subject, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Subject)
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Mesajınız:")
+                                        @Html.TextAreaFor(model => model.MessageContent, new { @class = "form-control", @id = "compose-textarea", @style = "height: 300px" })
+                                        @Html.ValidationMessageFor(x => x.MessageContent, "", new { @class = "text-danger" })
+                                    </div>
+                                    
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <div class="float-right">                                        
+                                        <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                                    </div>
+                                    <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal Et</button>
+                                </div>
+                                <!-- /.card-footer -->
+                            </div>
+                            <!-- /.card -->
+                        }
+                    </div>
+                </div>
+
+                <!-- /.col -->
+            
+            <!-- /.row -->
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <!-- Summernote -->
+    <script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })</script>
+</body>
+</html>
+

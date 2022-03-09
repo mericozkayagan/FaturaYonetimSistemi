@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewData["Title"] = "EditUser";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Bilgileri Güncelle</h4>
+        <p class="card-description"> ------------------ </p>
+        <form method="post" class="forms-sample">
+            @Html.HiddenFor(x=>x.UserId)
+            <div class="form-group">
+                <label for="exampleInputUsername1">Adınız</label>
+                <input type="text" name="Name" class="form-control" id="exampleInputUsername1" placeholder="Adınızı giriniz">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Soyadınız</label>
+                <input type="text" name="Surname" class="form-control" id="exampleInputEmail1" placeholder="Soyadınızı giriniz">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Emailiniz</label>
+                <input type="email" name="Email" class="form-control" id="exampleInputPassword1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputConfirmPassword1">Şifreniz</label>
+                <input type="password" name="Password" class="form-control"  placeholder="******">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputConfirmPassword1">Şifrenizi Doğrulayın</label>
+                <input type="password" class="form-control" name="confirmPassword" id="exampleInputConfirmPassword1" placeholder="******">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputConfirmPassword1">Araba Durumu</label>
+                <input type="text" name="CarStatus" class="form-control" placeholder="Arabanız">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputConfirmPassword1">Telefon Numaranız</label>
+                <input type="text" name="PhoneNumber" class="form-control" placeholder="Telefon">
+            </div>
+            
+            <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+            <a href="UserMain/Index" class="btn btn-outline-info">Geri Dön</a>
+        </form>
+    </div>
+</div>
+
